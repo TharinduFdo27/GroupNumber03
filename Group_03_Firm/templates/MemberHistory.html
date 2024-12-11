@@ -1,0 +1,14 @@
+<h1>Investment History of {{ name }}</h1>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Investment</th>
+    </tr>
+    {% for investment in investments %}
+    <tr>
+        <td>{{ investment.investment_date }}</td>
+        <td>{{ investment.investment_amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p>Total Investment: {{ total }}</p>

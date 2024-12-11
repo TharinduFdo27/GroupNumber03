@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Group 03 Home</title>
+</head>
+<body>
+    <h1>Welcome to Group 03 Consultancy</h1>
+    <p>We offer top-notch consultancy services for businesses and individuals.</p>
+    <p>Our team ensures your success through innovative strategies.</p>
+    <p>Explore our services to achieve your goals.</p>
+    <a href="{% url 'funding' %}">Go to Funding Page</a>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Record Investment</button>
+    </form>
+    <table>
+        <tr>
+            <th>Member Name</th>
+            <th>CPM</th>
+            <th>Total Investment</th>
+        </tr>
+        {% for investment in investments %}
+        <tr>
+            <td>{{ investment.member_name }}</td>
+            <td>{{ investment.member_cpm }}</td>
+            <td>{{ investment.investment_amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Total Investment: {{ total_investment }}</p>
+
+</body>
+</html>
